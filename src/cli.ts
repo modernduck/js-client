@@ -30,7 +30,8 @@ program
     .command("balance").description("Gets the specified user's balance for the current bundler").argument("<address>", "address")
     .action(async (address: string) => {
         try {
-            options.address = address;
+            address = address.substring(1);
+            options.address = address
             console.log(address);
             const bundlr = await init(options);
             const balance = await bundlr.utils.getBalance(address);
@@ -186,5 +187,9 @@ console.log(JSON.stringify(process.argv));
 //const Argv = ["/usr/local/bin/node", "/usr/local/share/npm-global/bin/bundlr", "withdraw", "1000", "-h", "dev.bundlr.network", "-c", "arweave", "--no-confirmation"]
 //const Argv = ["/usr/local/bin/node", "/usr/local/share/npm-global/bin/bundlr", "fund", "1000", "-h", "dev.bundlr.network", "-w", "29c17feb590ef5471d4f1d203e3525cbcb3073ccbdc593cd39a9cfff2415eeb0", "-c", "matic", "--no-confirmation"];
 //const Argv = ["/usr/local/bin/node", "/usr/local/share/npm-global/bin/bundlr", "upload", "./a.txt", "-h", "dev.bundlr.network", "-w", "29c17feb590ef5471d4f1d203e3525cbcb3073ccbdc593cd39a9cfff2415eeb0", "-c", "matic"];
+
 const Argv = process.argv;
+if (Argv[2] == "balance") {
+    Argv[3] = "[" + Argv[3]
+}
 program.parse(Argv);
