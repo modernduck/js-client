@@ -1,3 +1,6 @@
 // Module export stub
 import Bundlr from "./bundlr";
-export = Bundlr;
+import BundlrWallet from "./bundlerWallet";
+export default Bundlr;
+
+export { BundlrWallet };

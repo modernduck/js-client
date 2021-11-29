@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import redstone from "redstone-api";
 import BigNumber from "bignumber.js";
 import base64url from "base64url";

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import PolygonSigner from "arbundles/build/signing/chains/PolygonSigner";
 import { currencies, Tx } from "./index";
 import keccak256 from "keccak256";
@@ -61,6 +62,37 @@ export async function maticGetFee(amount: BigNumber, to: string): Promise<BigNum
     const gasPrice = await provider.getGasPrice();
 
     return new BigNumber(estimatedGas.mul(gasPrice).toString());
+}
+
+/**
+ * 
+ * @param amount 
+ * @param to 
+ * @param _fee 
+ * @returns {to:string,value:string,gasPrice:ethers.BigNumber,gasLimit: ethers.BigNumber}
+ */
+export async function maticCreateTxParams(amount, to, _fee?): Promise<{
+    to:string,
+    value:string,
+    gasPrice:ethers.BigNumber,
+    gasLimit: ethers.BigNumber
+}> {
+    const provider = new ethers.providers.JsonRpcProvider(currencies["matic"].provider);
+    let bigNumberAmount: BigNumber;
+    if (BigNumber.isBigNumber(amount)) {
+        bigNumberAmount = amount
+    } else {
+        bigNumberAmount = new BigNumber(amount)
+    }
+    const _amount = "0x" + bigNumberAmount.toString(16);
+    const estimatedGas = await provider.estimateGas({ to, value: _amount });
+    const gasPrice = await provider.getGasPrice();
+    return {
+        to,
+        value: _amount,
+        gasPrice,
+        gasLimit: estimatedGas
+    }
 }
 
 export async function maticCreateTx(amount, to, _fee?): Promise<any> {
