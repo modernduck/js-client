@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import Arweave from "arweave";
 //import { arweave } from "../bundlr";
 import crypto from "crypto";

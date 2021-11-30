@@ -1,25 +1,15 @@
 {
-  "name": "sompop-bundlr-network/client",
-  "version": "0.2.1",
-  "description": "JS client for Bundlr nodes",
-  "repository": "https://github.com/Bundlr-Network/js-client.git",
-  "author": "Bundlr Network, Sompop Kulapalanont",
-  "license": "Apache-2.0",
+  "name": "sompop-bundlr-network",
+  "version": "1.0.9",
+  "description": "JS client for Bundlr nodes for Bounty",
   "main": "build/src/index.js",
+  "types": "build/src/index.d.ts",
   "files": [
-    "/build/**/*.js",
-    "/build/**/*.ts"
+    "build"
   ],
-  "scripts": {
-    "prod:build": "tsc -p tsconfig.release.json"
-  },
-  "bin": {
-    "bundlr": "build/src/cli.js"
-  },
   "dependencies": {
     "@solana/web3.js": "^1.30.2",
     "@walletconnect/client": "^1.6.6",
-    "@walletconnect/qrcode-modal": "^1.6.6",
     "arbundles": "^0.4.0",
     "arweave": "^1.10.17",
     "base64url": "^3.0.1",
@@ -45,5 +35,23 @@
     "jest": "^27.2.4",
     "ts-jest": "^27.0.7",
     "ts-node": "^10.2.1"
-  }
+  },
+  "scripts": {
+    "prod:build": "tsc -p tsconfig.release.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modernduck/js-client.git"
+  },
+  "keywords": [
+    "bundlr",
+    "matic",
+    "arweave"
+  ],
+  "author": "Sompop Kulapalanont",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/modernduck/js-client/issues"
+  },
+  "homepage": "https://github.com/modernduck/js-client#readme"
 }

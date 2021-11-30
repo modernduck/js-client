@@ -1,19 +1,18 @@
 import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "@walletconnect/qrcode-modal";
-import { convertUtf8ToHex } from "@walletconnect/utils";
-import { IInternalEvent } from "@walletconnect/types";
-import Api, { ApiConfig } from "arweave/node/lib/api";
-import { JWKInterface } from "arweave/node/lib/wallet";
+//import QRCodeModal from "@walletconnect/qrcode-modal";
+//import { convertUtf8ToHex } from "@walletconnect/utils";
+//import { IInternalEvent } from "@walletconnect/types";
+import Api from "arweave/node/lib/api";
 import WalletConnectUtils from "./walletConnectUtils";
-import { withdrawBalance } from "./withdrawal";
+//import { withdrawBalance } from "./withdrawal";
 import Uploader from "./upload";
 import Fund from "./fund";
 import { AxiosResponse } from "axios";
 import BigNumber from "bignumber.js";
 // import Arweave from "arweave";
-import { maticCreateTx, maticCreateTxParams, maticGetFee } from "./currencies/matic";
-import { DataItemCreateOptions } from "arbundles";
-import BundlrTransaction from "./transaction";
+import { maticCreateTxParams, maticGetFee } from "./currencies/matic";
+//import { DataItemCreateOptions } from "arbundles";
+//import BundlrTransaction from "./transaction";
 
 let currencies;
 
@@ -56,9 +55,9 @@ export default class BundlrWallet {
         
     }
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    async withdrawBalance(amount) {
+    //async withdrawBalance(amount) {
         //return await withdrawBalance(this.utils, this.api, amount);
-    }
+    //}
 
     /**
      * Gets the balance for the loaded wallet

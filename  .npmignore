@@ -1,0 +1,11 @@
+.devcontainer
+.env
+wallet.json
+.vscode
+temp
+test.ts
+yarn.lock
+yarn-error.log
+.idea
+solwallet.json
+a.txt
